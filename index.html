@@ -636,12 +636,40 @@ function genereazaMeniuri() {
 
     container.innerHTML = "";
 
-    for(let i = 1; i <= nrPersoane; i++){
+   for(let i = 1; i <= nrPersoane; i++){
+
+    const estePersoanaPrincipala = i === 1;
 
         const bloc = document.createElement("div");
 
         bloc.className = "menu-person";
+if(nrPersoane === 1){
 
+    bloc.innerHTML = `
+
+        <label>Preparatul Principal I</label>
+
+        <select class="fel1" required>
+            ${fel1Options.map(item =>
+            `<option value="${item}">${item}</option>`
+            ).join("")}
+        </select>
+
+        <br><br>
+
+        <label>Preparatul Principal II</label>
+
+        <select class="fel2" required>
+            ${fel2Options.map(item =>
+            `<option value="${item}">${item}</option>`
+            ).join("")}
+        </select>
+
+        <hr>
+    `;
+
+}
+else{
         bloc.innerHTML = `
 
          <h3>🍽️ ${nrPersoane === 1 ? "Persoană" : `Persoana ${i}`}</h3>
