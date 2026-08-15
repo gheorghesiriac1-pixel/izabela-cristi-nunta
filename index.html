@@ -644,14 +644,15 @@ function genereazaMeniuri() {
 
         bloc.innerHTML = `
 
-         <h3>🍽️ Persoana ${i}</h3>
+         <h3>🍽️ ${nrPersoane === 1 ? "Persoană" : `Persoana ${i}`}</h3>
 
 <label>Nume și prenume</label>
 
 <input
     type="text"
     class="nume-persoana"
-    placeholder="Nume persoana ${i}"
+ placeholder="${nrPersoane === 1 ? 'Nume și prenume' : `Nume persoana ${i}`}"
+
     required>
 
 <br><br>
