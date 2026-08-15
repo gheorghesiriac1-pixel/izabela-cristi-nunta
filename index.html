@@ -564,21 +564,24 @@ const data = {
     document.getElementById("mesaj").value,
 
     meniuri: Array.from(
-        document.querySelectorAll(".menu-person")
-    ).map((pers,index)=>({
+    document.querySelectorAll(".menu-person")
+).map((pers,index)=>({
 
-       persoana:index + 1,
+    persoana:index + 1,
 
-nume:
-pers.querySelector(".nume-persoana").value,
+    nume:
+    pers.querySelector(".nume-persoana")
+        ? pers.querySelector(".nume-persoana").value
+        : document.getElementById("nume").value,
 
-        fel1:
-        pers.querySelector(".fel1").value,
+    fel1:
+    pers.querySelector(".fel1").value,
 
-        fel2:
-        pers.querySelector(".fel2").value
+    fel2:
+    pers.querySelector(".fel2").value
 
-    }))
+}))
+
 };
 
     try {
