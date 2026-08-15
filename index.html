@@ -636,84 +636,59 @@ function genereazaMeniuri() {
 
     container.innerHTML = "";
 
-   for(let i = 1; i <= nrPersoane; i++){
+for(let i = 1; i <= nrPersoane; i++){
 
-    const estePersoanaPrincipala = i === 1;
+    const bloc = document.createElement("div");
 
-        const bloc = document.createElement("div");
-
-        bloc.className = "menu-person";
-if(nrPersoane === 1){
+    bloc.className = "menu-person";
 
     bloc.innerHTML = `
 
-        <label>Preparatul Principal I</label>
+    ${i > 1 ? `
 
-        <select class="fel1" required>
-            ${fel1Options.map(item =>
-            `<option value="${item}">${item}</option>`
-            ).join("")}
-        </select>
+    <h3>🍽️ Persoana ${i}</h3>
 
-        <br><br>
+    <label>Nume și prenume</label>
 
-        <label>Preparatul Principal II</label>
+    <input
+        type="text"
+        class="nume-persoana"
+        placeholder="Nume persoana ${i}"
+        required>
 
-        <select class="fel2" required>
-            ${fel2Options.map(item =>
-            `<option value="${item}">${item}</option>`
-            ).join("")}
-        </select>
+    <br><br>
 
-        <hr>
+    ` : ''}
+
+    <label>Preparatul Principal I</label>
+
+    <select class="fel1" required>
+
+        ${fel1Options.map(item =>
+        `<option value="${item}">${item}</option>`
+        ).join("")}
+
+    </select>
+
+    <br><br>
+
+    <label>Preparatul Principal II</label>
+
+    <select class="fel2" required>
+
+        ${fel2Options.map(item =>
+        `<option value="${item}">${item}</option>`
+        ).join("")}
+
+    </select>
+
+    <hr>
     `;
 
+    container.appendChild(bloc);
+} 
 }
-else{
-        bloc.innerHTML = `
-
-         <h3>🍽️ ${nrPersoane === 1 ? "Persoană" : `Persoana ${i}`}</h3>
-
-<label>Nume și prenume</label>
-
-<input
-    type="text"
-    class="nume-persoana"
- placeholder="${nrPersoane === 1 ? 'Nume și prenume' : `Nume persoana ${i}`}"
-
-    required>
-
-<br><br>
-
-<label>Preparatul Principal I</label>
-
-            <select class="fel1" required>
-
-                ${fel1Options.map(item =>
-                `<option value="${item}">${item}</option>`
-                ).join("")}
-
-            </select>
-
-            <br><br>
-
-            <label>Preparatul Principal II</label>
-
-            <select class="fel2" required>
-
-                ${fel2Options.map(item =>
-                `<option value="${item}">${item}</option>`
-                ).join("")}
-
-            </select>
-
-            <hr>
-        `;
-
-        container.appendChild(bloc);
-    }
-}
-
+	
 document
 .getElementById("persoane")
 .addEventListener("change", genereazaMeniuri);
