@@ -30,7 +30,10 @@ body{
     background-attachment:fixed;
 }
 
-
+html,
+body{
+    overflow-x:hidden;
+}
 
 .hero{
     min-height:100vh;
@@ -223,36 +226,26 @@ button:hover{
     text-align:center;
     padding:30px;
 }
-
-@media(max-width:768px){
-
-
-.hero{
-    height:auto;
-    padding:70px 20px;
-}
-
-}
-.parents{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:60px;
-    margin:15px 0;
-    flex-wrap:wrap;
-}
-
-.parents div{
-    text-align:center;
-}
-
-.parents strong{
-    font-size:1.2rem;
+	select{
+    width:100%;
+    max-width:100%;
+    white-space:nowrap;
 }
 @media(max-width:768px){
+
+    html,
+    body{
+        overflow-x:hidden;
+    }
+
+    .hero{
+        height:auto;
+        min-height:auto;
+        padding:80px 20px;
+    }
 
     .hero h1{
-        font-size:4rem;
+        font-size:3.5rem;
     }
 
     .hero h2{
@@ -264,7 +257,12 @@ button:hover{
     }
 
     .parents{
-        gap:20px;
+        flex-direction:column;
+        gap:10px;
+    }
+
+    .card{
+        padding:20px;
     }
 
     .card p{
@@ -275,7 +273,30 @@ button:hover{
         font-size:1.2rem;
     }
 
+    .event-content{
+        padding:20px;
+    }
+
+    select,
+    input,
+    textarea,
+    button{
+        width:100%;
+        max-width:100%;
+        font-size:14px;
+    }
+
+    .time-box{
+        min-width:90px;
+        padding:15px;
+    }
+
+    .time-box span{
+        font-size:1.6rem;
+    }
+
 }
+
 </style>
 
 </head>
