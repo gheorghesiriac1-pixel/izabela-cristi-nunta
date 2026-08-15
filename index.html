@@ -471,9 +471,9 @@ button:hover{
     rows="4"
     placeholder="Mesaj pentru miri"></textarea>
 
-            <button type="submit">
-                Trimite Confirmarea
-            </button>
+            <button type="submit" id="submitBtn">
+    Trimite Confirmarea
+</button>
 <div id="status"></div>
         </form>
 
@@ -539,7 +539,11 @@ document
 .addEventListener("submit", async function(e){
 
     e.preventDefault();
+const submitBtn =
+document.getElementById("submitBtn");
 
+submitBtn.disabled = true;
+submitBtn.innerText = "Se trimite...";
 const data = {
 
     nume:
@@ -590,7 +594,8 @@ const data = {
         "💍 Vă mulțumim! Confirmarea dumneavoastră a fost înregistrată cu succes. Abia așteptăm să sărbătorim împreună!";
 
         document.getElementById("rsvpForm").reset();
-
+submitBtn.disabled = false;
+submitBtn.innerText = "Trimite Confirmarea";
     } catch(err) {
 
         document.getElementById("status").innerHTML =
