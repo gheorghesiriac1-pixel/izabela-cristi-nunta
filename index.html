@@ -531,7 +531,7 @@ setInterval(function(){
 <script>
 
 const SCRIPT_URL =
-"https://script.google.com/macros/s/AKfycbzGmJbrHsV8pMw6kCnUnqDCogMu0zP3cwWss5d9qwAgJbyf-XKIICg_8t2XBXz5H_2T/exec";
+"https://script.google.com/macros/s/AKfycbxwHvlMGWtNlW-zrHTYZmaZMWS1K0inRkrdry6sOOG-VS9Ml7DmvaNPgeQgvhO8bLJp/exec";
 
 
 document
@@ -565,7 +565,10 @@ const data = {
         document.querySelectorAll(".menu-person")
     ).map((pers,index)=>({
 
-        persoana:index + 1,
+       persoana:index + 1,
+
+nume:
+pers.querySelector(".nume-persoana").value,
 
         fel1:
         pers.querySelector(".fel1").value,
@@ -639,9 +642,19 @@ function genereazaMeniuri() {
 
         bloc.innerHTML = `
 
-            <h3>🍽️ Persoana ${i}</h3>
+         <h3>🍽️ Persoana ${i}</h3>
 
-            <label>Preparatul Principal I</label>
+<label>Nume și prenume</label>
+
+<input
+    type="text"
+    class="nume-persoana"
+    placeholder="Nume persoana ${i}"
+    required>
+
+<br><br>
+
+<label>Preparatul Principal I</label>
 
             <select class="fel1" required>
 
